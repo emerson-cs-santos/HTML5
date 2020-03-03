@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Titulo</title>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <header>
+            <h1>SENAC H1</h1>
+
+            <img src="senac.jpg" alt="Logo do Senac" style="width: 100px; height:100px;">
+            
+            <nav>
+                <ul>
+                    <li> <a href="Institucional.html"> Institucional</a></li>
+                    <li> <a href="Pagina1.html" > Conheça o Senac</a></li>
+                    <li> <a href="Pagina2.html" > Quem Somos</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <main>
+            <section>
+                <header> 
+                    <h2>Título H2</h2> 
+                </header>
+
+                <article>
+                    <h3>Sub Titulo H3</h3>
+                    
+                    <p>Conteudo</p>
+
+                    <p>tags de time</p>
+                    <p>We open at <time>10:00</time> every morning.</p>
+
+                    <p>I have a date on <time datetime="2008-02-14 20:00">Valentines day</time>.</p>
+                    <p>I have a date on <time>2008-02-14 20:00</time>.</p>
+                    
+                    <p><time datetime="20:00">Hora</time>.</p>
+                    <p><time> 20:00</time></p>
+
+                    <!-- Com UTC -->
+                    <!-- <time datetime="YYYY-MM-DDThh:mm:ssTZD"></time> -->
+
+                     <!-- Com data de publicação -->
+                    <time datetime="2011-09-28" pubdate="pubdate"></time>
+                    <pubDate>Thu, 27 Apr 2006</pubDate>
+
+
+                    <!-- Utilizar imagem com uma caption, uma descrição -->
+                    <!-- Pode ser utilizado para exibir um bloco de texto estilizado, como um card por exemplo, sem necessariamente uma imagem. -->
+                    <figure>
+                        <img src="senac.jpg" alt="Trulli" style="width: 100px; height:100px;">
+                        <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+                    </figure> 
+                      
+                      
+                      <p style="display: none;">Texto invisível 1 </p>
+                      <p hidden=True>Texto invisível 2</p>
+                      <!-- <p>Texto invisível 3</p> -->
+
+
+                      <!-- details - Não é suportado por todos os navegadores -->
+                      <details>
+                        <summary>details - Copyright 1999-2018.</summary>
+                        <p> - by Refsnes Data. All Rights Reserved.</p>
+                        <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+                      </details>
+
+                      <!-- mark - Algo importante a ser destacado -->
+                      <p>Do not forget to buy <mark>milk</mark> today.</p>
+
+                      <!-- pronuncias de fonemas -->
+                      <ruby>
+                        漢 <rt> ㄏㄢˋ </rt>
+                       </ruby>
+
+                       <!-- Gerar chave publica -->
+                       <form action="C:\xampp\htdocs\teste.php" method="get">
+                        Username: <input type="text" name="usr_name">
+                        Encryption: <keygen name="security">
+                        <input type="submit">
+                      </form>       
+                      
+                      <!-- Barra de progresso -->
+                      <label for="file">Downloading progress:</label>
+                      <progress id="file" value="32" max="100"> 32% </progress> 
+                      
+                      
+
+
+                      <!-- Menu de contexto apenas funciona no firefox -->
+                      <div style="background:yellow;border:1px solid #cccccc;padding: 10px;" contextmenu="mymenu">
+                        <p>Right-click inside this box to see the context menu!</p>
+                        
+                        <menu type="context" id="mymenu">
+                          <menuitem label="Refresh" onclick="window.location.reload();" icon="ico_reload.png"></menuitem>
+                          <menu label="Share on...">
+                            <menuitem label="Twitter" icon="ico_twitter.png" onclick="window.open('//twitter.com/intent/tweet?text=' + window.location.href);"></menuitem>
+                            <menuitem label="Facebook" icon="ico_facebook.png" onclick="window.open('//facebook.com/sharer/sharer.php?u=' + window.location.href);"></menuitem>
+                          </menu>
+                          <menuitem label="Email This Page" onclick="window.location='mailto:?body='+window.location.href;"></menuitem>
+                        </menu>
+                        
+                        </div>
+                        
+                        <p>This example currently only works in Firefox!</p>                      
+                       
+
+
+                        <!-- b,i,em, strong, small, hr,  -->
+
+                        <!-- Foi relevante no passado  -->
+                        <p><s>My car is blue.</s></p>
+
+
+                        <!-- Foi marcado para ser apagado  -->
+                        <p>My favorite color is <del>blue</del> <ins>red</ins>!</p> <!-- pode utilizar CITE e DATETIME, podendo ter uma url para explicar o motivo -->
+                        
+                        <cite> cite Referenciar obras, não autores</cite>
+                        <address> address - Informações de contato do autor</address>
+
+                        <!--  lista com OL e DL-->
+                        <ol>
+                            <li>Coffee</li>
+                            <dl>Tea</dl>
+                            <li>Milk</li>
+                        </ol>        
+                        
+
+                        <!--  lista reversa-->
+                        <ol reversed>
+                            <li>Coffee</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                        </ol>                         
+                        
+                       
+                </article>
+
+                    
+
+            </section>
+
+
+            <section>
+                    <header> 
+                        <h2>Título H2</h2> 
+                    </header>
+    
+                    <p>Conteudo da section 2</p>
+                    <div>
+                        <h3> Título H3 </h3>
+                        <p>Conteudo</p>
+                    </div>
+            </section>            
+        </main>
+        
+
+        <footer>
+            <p>footer</p>
+        </footer>
+    </body>
+</html>
