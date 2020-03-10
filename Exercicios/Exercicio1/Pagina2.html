@@ -1,0 +1,89 @@
+<!-- Criar um formulário de pesquisa de satisfação em 3 páginas:​
+A segunda página deve ter perguntas sobre preferências de produtos e serviços (Ex.: navegador preferido, cor preferida, etc.)​
+Utilizar <select>s quando o usuário for obrigado a selecionar um valor em uma lista pré-determinada​
+Utilizar <datalist>s quando o usuário puder selecionar um valor diferente das opções dadas​
+Utilizar o máximo possível de elementos vistos em aula -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Exercicio 2</title>
+        <meta charset="utf-8">
+
+    <style>
+        /* input:valid{ outline: 5px solid green;​ }
+
+        input:invalid{ outline: 5px dashed red;}        */
+
+        .margemTop
+        {
+            margin-top: 10px;
+        }
+
+        .tamanho
+        {
+            width: 500px;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Exercicio 2</h1>
+
+            <nav>
+                <ul>
+                    <li> <a href="Pagina1.html"> Página 1</a></li>
+                    <li> <a href="Pagina2.html" > Página 2</a></li>
+                    <li> <a href="Pagina3.html" > Página 3</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+               
+                <header> 
+                    <h2> Preferências </h2> 
+                </header>
+
+                <form action="/.php">
+
+                    <div>Navegador favorito:</div>
+                    <input list="browsers" name="browser" required placeholder="Opera" autofocus>
+                    <datalist id="browsers">
+                        <option value="Internet Explorer">
+                        <option value="Firefox">
+                        <option value="Chrome">
+                        <option value="Opera">
+                        <option value="Safari">
+                    </datalist>
+
+                    <div class='margemTop'>
+                        <div>Cor favorita:</div>
+                        <input type="color" id="head" name="head"
+                                value="#e66465">
+                        <label for="head">selecionar Cor</label>
+                    </div>      
+                    
+                    <div class='margemTop'>
+                            <div>Video Game favorito:</div>
+                        <select id="games">
+                                <option value="Mega">Mega-Drive</option>
+                                <option value="Saturn">Sega Saturn</option>
+                                <option value="Dreamcast">Dreamcast</option>
+                        </select> 
+                    </div>
+                   
+                    <input class='margemTop' type="submit" value="Submit">
+                </form>
+            </section>          
+          
+        </main>
+
+        <footer>            
+            <small>Footer</small>
+        </footer>
+    </body>
+</html>

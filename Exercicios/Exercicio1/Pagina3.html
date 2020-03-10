@@ -1,0 +1,69 @@
+<!-- Criar um formulário de pesquisa de satisfação em 3 páginas:​
+A terceira página deve conter campos para texto livre (Ex.: comentários, sugestões, etc.)​
+Utilizar o máximo possível de elementos vistos em aula -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Exercicio 3</title>
+        <meta charset="utf-8">
+
+    <style>
+        /* input:valid{ outline: 5px solid green;​ }
+
+        input:invalid{ outline: 5px dashed red;}        */
+
+        .margemTop
+        {
+            margin-top: 10px;
+        }
+
+        .tamanho
+        {
+            width: 500px;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Exercicio 3</h1>
+
+            <nav>
+                <ul>
+                    <li> <a href="Pagina1.html"> Página 1</a></li>
+                    <li> <a href="Pagina2.html" > Página 2</a></li>
+                    <li> <a href="Pagina3.html" > Página 3</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+               
+                <header> 
+                    <h2>Texto Livre</h2> 
+                </header>
+
+                <form action="/.php">
+
+                    <div>Comentários</div>
+                    <textarea id="comentario" autofocus name='comentario' rows="4" cols="50" required placeholder="Ameno..." value=""></textarea>
+
+                    <div class='margemTop' >
+                        <div>Sugestões</div>
+                        <textarea id="sugestao" name='sugestao' rows="4" cols="50" required placeholder="Latire..." value=""></textarea>                        
+                    </div>
+
+                    <input class='margemTop' type="submit" value="Submit">
+                </form>
+            </section>          
+          
+        </main>
+
+        <footer>            
+            <small>Footer</small>
+        </footer>
+    </body>
+</html>

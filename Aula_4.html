@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Aula 4</title>
+        <meta charset="utf-8">
+
+    <style>
+        /* input:valid{ outline: 5px solid green;​ }
+
+        input:invalid{ outline: 5px dashed red;}        */
+
+        .margemTop
+        {
+            margin-top: 20px;
+
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Aula 4</h1>
+
+            <nav>
+                <ul>
+                    <li> <a href="Pagina1.html"> Página 1</a></li>
+                    <li> <a href="Pagina2.html" > Página 2</a></li>
+                    <li> <a href="Pagina3.html" > Página 3</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+               
+                <header> 
+                    <h2>Título H2</h2> 
+                </header>
+
+                <!-- Definir um range, neste caso de 20 em 20 -->
+                <input type="range" min="0" max="1000" value="20" step="20">
+
+                <div class='margemTop'>
+                    <!-- Abre o calendário do navegador -->
+                    <input type="datetime-local" value="2010-05-31T21:00">
+                </div>
+
+                <!-- Campo obrigatório -->
+                <!-- required  Valida se o campo está vazio--> 
+                <!-- autofocus Inicia com o foco no campo que estiver com esse atributo, normalmente utilizado em apenas um campo-->
+                <!-- autocomplete  é possivel desabilitar o auto complementar do navegador-->
+                <div class='margemTop'>
+                    Campo obrigatório
+                    <input type="text" required autofocus autocomplete="off">
+                </div>
+                
+
+                <!-- Especificar um padrão através de expressão regular -->
+                <div class='margemTop'>
+                    Especificar um padrão através de expressão regular
+                    Placa Antiga:
+                    <form action="/.php">
+                        <input type="text" pattern="[A-Z]{3}[0-9]{4}" title="A placa é composta por três letras e quatro números" />
+                        <input type="submit">
+                    </form>                    
+
+                    <div class='margemTop'>
+                        Placa nova:
+                        <form action="/.php">
+                            <input type="text" pattern="[A-Z]{3}[0-9]{1}[A-Z]{1}[0-9]{2}" title="A placa nova é composta por três letras,  1 Número, 1 Letra e 2 Números" />
+                            <input type="submit">
+                        </form>
+                    </div>                     
+                </div>
+                
+                <!-- novalidate - Não executa as validações do html5 -->
+                <form class='margemTop' action="/action_page.php" novalidate>
+                    <label for="email">Enter your email:</label>
+                    <input type="email" id="email" name="email"><br><br>
+                    <input type="submit">
+                </form>                
+
+                <!-- formnovalidate - Outra forma de Não executar as validações do html5 -->
+                <div class='margemTop'>
+                    <form action="/action_page.php" method="get">
+                        <label for="email">Enter your email:</label>
+                        <input type="email" id="email" name="email"><br><br>
+                        <button type="submit">Submit</button>
+                        <button type="submit" formnovalidate>Submit without validation</button>
+                    </form>                  
+                    <p><strong>Note:</strong> The formnovalidate attribute of the button tag is not supported in Safari.</p>
+                </div>
+
+                
+                <!-- Número de telefone -->
+                <form class='margemTop' action="/action_page.php">
+                    <label for="phone">Enter a phone number:</label><br><br>
+                    <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required><br><br>
+                    <small>Format: 123-45-678</small><br><br>
+                    <input type="submit">
+                </form>                
+
+
+                <!-- Search -->
+                <form class='margemTop' action="/action_page.php">
+                    <label for="gsearch">Search</label>
+                    <input type="search" id="gsearch" name="gsearch">
+                    <input type="submit">
+                </form>   
+                
+                <!-- Pegar Cor -->
+                <div class='margemTop'>
+                    <input type="color" id="head" name="head"
+                            value="#e66465">
+                    <label for="head">Head</label>
+                </div>            
+                
+                <!-- ComboBox-->
+                <form class='margemTop' action="/action_page.php" method="get">
+                    <input list="browsers" name="browser">
+                    <datalist id="browsers">
+                      <option value="Internet Explorer">
+                      <option value="Firefox">
+                      <option value="Chrome">
+                      <option value="Opera">
+                      <option value="Safari">
+                    </datalist>
+                    <input type="submit">
+                </form>  
+                
+                
+                <!-- É possível exibir um feedback para o usuário enquanto ele preenche o formulário -->
+                <!-- Uma das formas é utilizar o elemento <output> -->
+                <div class='margemTop'>
+                    <form class='margemTop' oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+                            <input type="range" id="a" value="50">100
+                            +<input type="number" id="b" value="50">
+                            =<output name="x" for="a b"></output>
+                    </form> 
+                </div>
+
+
+                <form action="/.php">
+
+                    <div class='margemTop'>
+                        <label for="email">E-mail:</label>
+                        <button id='' value="validar" onclick="validar_email()" > teste</button>
+                        <input type="email" id="email" name="email" placeholder="email@servidor.com" required class='tamanho' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >  
+                        <input type="text" id="validar_teste_email" name="validar_teste_email" placeholder="email@servidor.com" class='tamanho' >  
+                    </div>
+
+                    <input class='margemTop' type="submit" value="Submit">
+                </form>                
+               
+            </section>          
+          
+        </main>
+
+        <script>
+
+            function validar_email()
+            {
+                alert('teste');
+                
+                var fldEmail = document.getElementById('validar_teste_email');​
+
+                fldEmail.oninvalid = function(event) 
+                {​
+                alert("Email inválido");​
+                event.preventDefault();​
+                };
+            }
+
+
+        </script>
+
+        <footer>            
+            <small>Footer</small>
+        </footer>
+    </body>
+</html>
