@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Aula 4</title>
+        <meta charset="utf-8">
+
+    <style>
+
+        .margemTop
+        {
+            margin-top: 30px;
+
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Aula 4</h1>
+
+            <nav>
+                <ul>
+                    <li> <a href="Pagina1.html"> Página 1</a></li>
+                    <li> <a href="Pagina2.html" > Página 2</a></li>
+                    <li> <a href="Pagina3.html" > Página 3</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+               
+                <header> 
+                    <h2>Aula 4</h2> 
+                </header>
+
+                <p>Elemento Video</p>
+                <div>
+                    <video id='video' width="400" controls>
+                        <source src="videos/aula_4_2_movie.mp4" type="video/mp4">
+                        <source src="videos/aula_4_2_movie.ogg" type="video/ogg">
+                    </video>
+
+                    <div>
+                        <small>Progresso:</small>
+                        <meter id="loading" value="0" min="0" max="12">Progresso</meter>
+                    </div>
+
+                    <input type="button" value="Play" onclick="play()">
+                    <input type="button" value="Pause" onclick="pause()">
+                </div>
+
+                <div class='margemTop'>
+                    <p>Elemento Audio</p>
+
+                    <audio id='audio' controls preload="none">
+                        <source src="audio/aula_4_2_vincent.ogg" type="audio/ogg">
+                        <source src="audio/aula_4_2_vincent.mp3" type="audio/mp3">
+                    </audio>   
+                    <div>
+                        <img id='controle_img' src="imagens/aula_4_2_play.png" alt="Play" onclick="play_load()">
+                    </div>
+                </div>
+            </section>          
+          
+        </main>
+
+        <script>
+
+            var musica = document.getElementById("audio"); 
+
+            var controle = document.getElementById("controle_img");
+
+            function play_load() 
+            {
+                controle.setAttribute('src','imagens/aula_4_2_loading.gif');
+                setTimeout(play_music, 3000);
+            }
+
+            function play_music() 
+            {
+                controle.setAttribute('src','imagens/aula_4_2_pause.png');
+                musica.play();
+
+                controle.onclick=pause_music;
+            }            
+
+            function pause_music() 
+            {
+                musica.pause();
+                controle.setAttribute('src','imagens/aula_4_2_play.png');
+                controle.onclick=play_music;
+            }
+
+            musica.ontimeupdate = function() {audio_update()};
+
+            function audio_update() 
+            {
+                if(musica.currentTime == musica.duration)
+                {
+                    controle.setAttribute('src','imagens/aula_4_2_play.png');
+                    controle.onclick=play_load;
+                }
+            }
+
+            function play() 
+            {
+                document.getElementById('video').play();
+            }
+
+            function pause() 
+            {
+                document.getElementById('video').pause();
+            }
+
+            var video = document.getElementById('video');
+            video.ontimeupdate = function() {video_update()};
+
+            function video_update() 
+            {
+                var teste = document.getElementById('video');
+                document.getElementById('loading').value = teste.currentTime;
+            }
+
+        </script>
+
+        <footer class='margemTop'>            
+            <small>Footer</small>
+        </footer>
+    </body>
+</html>
