@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Jogo de Xadres</title>
+        <meta charset="utf-8">
+
+    <style>
+
+        .margemTop
+        {
+            margin-top: 30px;
+
+        }     
+
+        .imagem
+        {
+            height: 50px;
+            width: 50px;
+        }
+
+        .hide
+        {
+            visibility: hidden;
+        }
+
+        #board { border:5px solid #333; float: left; }
+        #board td {
+            background:#fff;
+            background:-moz-linear-gradient(top, #fff, #eee);
+            background:-webkit-gradient(linear,0 0, 0 100%, from(#fff), to(#eee));
+            box-shadow:inset 0 0 0 1px #fff;
+            -moz-box-shadow:inset 0 0 0 1px #fff;
+            -webkit-box-shadow:inset 0 0 0 1px #fff;
+            height:80px;
+            text-align:center;
+            vertical-align:middle;
+            width:80px;
+        }
+        #board tr:nth-child(odd) td:nth-child(even),
+        #board tr:nth-child(even) td:nth-child(odd) {
+            background:#ddd;
+            background:-moz-linear-gradient(top, #ddd, #eee);
+            background:-webkit-gradient(linear,0 0, 0 100%, from(#ddd), to(#eee));
+            box-shadow:inset 0 0 10px rgba(0,0,0,.4);
+            -moz-box-shadow:inset 0 0 10px rgba(0,0,0,.4);
+            -webkit-box-shadow:inset 0 0 10px rgba(0,0,0,.4);
+        }           
+        
+    </style>
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Jogo de Xadres</h1>
+
+            <nav>
+                <ul>
+                    <li> <a href="../01_Jogo_da_velha/Jogo.html"> Jogo da velha</a></li>
+                    <li> <a href="../02_Damas/Jogo.html" > Damas</a></li>
+                    <li> <a href="Jogo.html" > Xadrez</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+               
+                <header> 
+                    <!-- <h2 id='status'>Jogo em andamento</h2>  -->
+                    <h2 >Jogue!</h2>
+                </header>
+
+                <div style="display: inline-block;" >
+                    <table id="board" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td id="BRANCO1"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="torre_preto.png" class='imagem' id="peca1" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO1"     ondrop="drop(event)" ondragover="allowDrop(event)"><img src="cavalo_preto.png" class='imagem' id="peca2" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO2"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="bispo_preto.png" class='imagem' id="peca3" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO2"     ondrop="drop(event)" ondragover="allowDrop(event)"><img src="rainha_preto.png" class='imagem' id="peca4" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO3"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="rei_preto.png" class='imagem' id="peca5" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO3"     ondrop="drop(event)" ondragover="allowDrop(event)"><img src="bispo_preto.png" class='imagem' id="peca6" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO4"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="cavalo_preto.png" class='imagem' id="peca7" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO4"     ondrop="drop(event)" ondragover="allowDrop(event)"><img src="torre_preto.png" class='imagem' id="peca8" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                        </tr>
+                        <tr>
+                            <td id="PRETO5"     ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_preto.png" class='imagem'id="peca9" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO5"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_preto.png" class='imagem'id="peca10" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO6"     ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_preto.png" class='imagem' id="peca11" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO6"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_preto.png" class='imagem' id="peca12" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO7"     ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_preto.png" class='imagem' id="peca13" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO7"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_preto.png" class='imagem' id="peca14" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO8"     ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_preto.png" class='imagem' id="peca15" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO8"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_preto.png" class='imagem' id="peca16" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                        </tr>
+                        <tr>
+                            <td id="BRANCO9"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO9"     ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO10"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO10"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO11"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO11"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO12"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO12"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        </tr>
+                        <tr>
+                            <td id="PRETO13"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO13"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO14"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO14"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO15"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO15"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO16"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO16"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        </tr>
+                        <tr>
+                            <td id="BRANCO17"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO17"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO18"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO18"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO19"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO19"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO20"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO20"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        </tr>
+                        <tr>
+                            <td id="PRETO21"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO21"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO22"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO22"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO23"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO23"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="PRETO24"    ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="BRANCO25"   ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        </tr>
+                        <tr>
+                            <td id="BRANCO256"  ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_branco.png" class='imagem' id="peca17" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO25"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_branco.png" class='imagem' id="peca18" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO26"   ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_branco.png" class='imagem' id="peca19" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO26"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_branco.png" class='imagem' id="peca20" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO27"   ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_branco.png" class='imagem'id="peca21" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO7"     ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_branco.png" class='imagem' id="peca22" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO28"   ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_branco.png" class='imagem' id="peca23" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO28"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="peao_branco.png" class='imagem' id="peca24" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                        </tr>
+                        <tr>
+                            <td id="PRETO29"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="torre_branco.png" class='imagem' id="peca25" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO29"   ondrop="drop(event)" ondragover="allowDrop(event)"><img src="cavalo_branco.png" class='imagem' id="peca26" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO30"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="bispo_branco.png" class='imagem'id="peca27" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO30"   ondrop="drop(event)" ondragover="allowDrop(event)"><img src="rainha_branco.png" class='imagem' id="peca28" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO31"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="rei_branco.png" class='imagem' id="peca29" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO31"   ondrop="drop(event)" ondragover="allowDrop(event)"><img src="bispo_branco.png" class='imagem' id="peca30" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="PRETO32"    ondrop="drop(event)" ondragover="allowDrop(event)"><img src="cavalo_branco.png" class='imagem'id="peca31" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                            <td id="BRANCO32"   ondrop="drop(event)" ondragover="allowDrop(event)"><img src="torre_branco.png" class='imagem' id="peca32" draggable="true" ondragstart="drag(event)" alt="Peça" /></td>
+                        </tr>
+                    </table>
+            
+                    <div ondrop="drop_descarte(event)" ondragover="allowDrop_descarte(event)" style="float:left;margin-left:40px;margin-top:60px;border:1px solid #000000;width:500px;height:500px;">
+                    </div>
+                </div>
+            </section>
+
+            <div>
+                <a href="Jogo.html">Resetar</a>
+            </div>
+        </main>
+
+        <script>
+                    
+
+                                                    // DRAG AND DROP
+            // Nas funções chamadas nas funções de origem
+            // event - Objeto de origem
+
+            // Nas funções chamadas no objeto de destino
+            // event - Objeto de Origem
+            // ev.target - Objeto de destino
+
+            function drag(event) 
+            {
+
+                event.dataTransfer.setData("text", event.target.id);
+            }
+
+            // Alterar objeto de origem (não o objeto que está sendo movido, mas sim a tag que estava armazenando ele)
+            function allowDrop(event) 
+            {
+                event.preventDefault();
+
+            }
+
+            // Alterar objeto de destino (não o objeto que está sendo movido, mas sim a tag que estava armazenando ele)
+            // Mover ou copiar o objeto que está sendo utilizado drag and drop
+            function drop(event) 
+            {
+                
+                var validar = event.target.id;
+                
+                if( validar.substr(0,4) == 'peca' )
+                {
+                    return false;
+                }                
+                
+                
+                event.preventDefault();
+
+
+            
+                // Move tag de imagem de um td para outro td
+                var data = event.dataTransfer.getData("text");
+                var peca = document.getElementById(data);
+                event.target.appendChild(peca);
+
+            }
+
+
+
+
+            // Alterar objeto de origem (não o objeto que está sendo movido, mas sim a tag que estava armazenando ele)
+            function allowDrop_descarte(event) 
+            {
+                event.preventDefault();
+                     
+            }
+
+            // Alterar objeto de destino (não o objeto que está sendo movido, mas sim a tag que estava armazenando ele)
+            // Mover ou copiar o objeto que está sendo utilizado drag and drop
+            function drop_descarte(event) 
+            {
+                event.preventDefault();
+            
+                // Muda atributos do td que vai ficar com a tag de imagem
+                var alvo = document.getElementById(event.target.id);
+
+                // Move tag de imagem de um td para outro td
+                var data = event.dataTransfer.getData("text");
+                var peca = document.getElementById(data);
+                event.target.appendChild(peca);
+            }            
+
+        </script>
+
+        <footer class='margemTop'>            
+            <small>Aplicações Ricas para internet</small>
+        </footer>
+    </body>
+</html>

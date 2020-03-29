@@ -1,0 +1,6 @@
+Crie um jogo da velha:
+Crie uma tabela com 3 linhas e 3 colunas
+Cria uma área contendo uma imagem de X e uma de O
+Os jogadores devem arrastar o X ou o O para a tabela
+Ao posicionar, a imagem deve ser duplicada
+Não permitir duas imagens em uma mesma célula

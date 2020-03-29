@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Jogo da Velha</title>
+        <meta charset="utf-8">
+
+    <style>
+
+        .margemTop
+        {
+            margin-top: 30px;
+
+        }
+
+        table
+        {
+            background: url("velha.html");
+        }
+
+        th, td
+        {
+            border: 1px solid black;
+            font-size: 100px;
+        }
+
+        td
+        {
+            padding-top: 10px;
+            padding-bottom: 25px;
+            padding-left: 35px;
+            padding-right: 35px;
+        }
+
+        .imagem
+        {
+            height: 50px;
+            width: 50px;
+        }
+
+        .hide
+        {
+            visibility: hidden;
+        }
+
+        #board { border:5px solid #333; }
+    #board td {
+        background:#fff;
+        background:-moz-linear-gradient(top, #fff, #eee);
+        background:-webkit-gradient(linear,0 0, 0 100%, from(#fff), to(#eee));
+        box-shadow:inset 0 0 0 1px #fff;
+        -moz-box-shadow:inset 0 0 0 1px #fff;
+        -webkit-box-shadow:inset 0 0 0 1px #fff;
+        height:150px;
+        text-align:center;
+        vertical-align:middle;
+        width:150px;
+    }
+    #board tr:nth-child(odd) td:nth-child(even),
+    #board tr:nth-child(even) td:nth-child(odd) {
+        background:#ddd;
+        background:-moz-linear-gradient(top, #ddd, #eee);
+        background:-webkit-gradient(linear,0 0, 0 100%, from(#ddd), to(#eee));
+        box-shadow:inset 0 0 10px rgba(0,0,0,.4);
+        -moz-box-shadow:inset 0 0 10px rgba(0,0,0,.4);
+        -webkit-box-shadow:inset 0 0 10px rgba(0,0,0,.4);
+    }        
+
+        
+        
+    </style>
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Jogo da Velha</h1>
+
+            <nav>
+                <ul>
+                    <li> <a href="Jogo.html"> Jogo da velha</a></li>
+                    <li> <a href="../02_Damas/Jogo.html" > Damas</a></li>
+                    <li> <a href="../03_Xadrez/Jogo.html" > Xadrez</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+               
+                <header> 
+                    <!-- <h2 id='status'>Jogo em andamento</h2>  -->
+                    <h2 >Jogue!</h2>
+                </header>
+
+                <p> Escolha uma opção de jogada e arraste para os campos abaixo: </p>
+
+                <img id='circulo'   src="o.png" class='imagem'  draggable="true"    ondragstart="drag(event)"   alt="Circulo">
+                <img id='x'         src="x.png" class='imagem'  draggable="true"    ondragstart="drag(event)"   alt="X">
+
+                <table class='margemTop' id="board" cellpadding="0" cellspacing="0">
+
+                    <tbody>
+                        <tr>
+                            <td id='td0_0' ondrop="drop(event)" ondragover="allowDrop(event)"><img src="o.png" class='imagem hide' alt="Espaço Vazio para fazer jogada"></td>
+                            <td id='td0_1' ondrop="drop(event)" ondragover="allowDrop(event)"><img src="o.png" class='imagem hide' alt="Espaço Vazio para fazer jogada"></td>
+                            <td id='td0_2' ondrop="drop(event)" ondragover="allowDrop(event)"><img src="o.png" class='imagem hide' alt="Espaço Vazio para fazer jogada"></td>
+                        </tr>
+
+                        <tr>
+                            <td id='td1_0' ondrop="drop(event)" ondragover="allowDrop(event)"><img src="o.png" class='imagem hide' alt="Espaço Vazio para fazer jogada"></td>
+                            <td id='td1_1' ondrop="drop(event)" ondragover="allowDrop(event)"><img src="o.png" class='imagem hide' alt="Espaço Vazio para fazer jogada"></td>
+                            <td id='td1_2' ondrop="drop(event)" ondragover="allowDrop(event)"><img src="o.png" class='imagem hide' alt="Espaço Vazio para fazer jogada"></td>
+                        </tr>
+
+                        <tr>
+                            <td id='td2_0' ondrop="drop(event)" ondragover="allowDrop(event)"><img src="o.png" class='imagem hide' alt="Espaço Vazio para fazer jogada"></td>
+                            <td id='td2_1' ondrop="drop(event)" ondragover="allowDrop(event)"><img src="o.png" class='imagem hide' alt="Espaço Vazio para fazer jogada"></td>
+                            <td id='td2_2' ondrop="drop(event)" ondragover="allowDrop(event)"><img src="o.png" class='imagem hide' alt="Espaço Vazio para fazer jogada"></td>
+                        </tr>                    
+
+                    </tbody>
+                </table>
+
+                <a href="Jogo.html">Resetar</a>
+
+            </section>          
+          
+        </main>
+
+        <script>
+            
+            // // Setando imagens invisiveis iniciais para manter o espaçamento
+            // for (var index = 2; index < 10; index++) 
+            // {
+            //     var td = document.getElementById('td' + index);
+                
+            //     var tdimg = document.createElement('img');
+            //     tdimg.setAttribute("src", "x.png");
+            //     tdimg.setAttribute("class", "imagem hide");
+            //     tdimg.setAttribute("alt", "Espaço Vazio para fazer jogada");
+
+            //     td.appendChild(tdimg);
+            // }
+
+            // var jogo = 
+            // [
+            //     ['', '', ''],
+            //     ['', '', ''],
+            //     ['', '', '']
+            // ];    
+
+                    
+
+                                                    // DRAG AND DROP
+            function drag(event) 
+            {
+                event.dataTransfer.setData("text", event.target.id);
+            }
+
+            // Alterar objeto de origem (não o objeto que está sendo movido, mas sim a tag que estava armazenando ele)
+            function allowDrop(event) 
+            {
+                event.preventDefault();
+            }
+
+            // Alterar objeto de destino
+            function drop(event) 
+            {
+                event.preventDefault();
+            
+                var alvo = document.getElementById(event.target.id);
+
+                if (alvo.className == 'ok')
+                {
+                    return false;
+                }
+
+              //  marcar(event.target.id);
+                
+                if(event.target.id == 'x' || event.target.id == 'circulo')
+                {
+                    return false
+                }
+                alvo.removeChild(alvo.childNodes[0]);
+                
+                // Faz cópia da imagem
+                var data = event.dataTransfer.getData("text");
+                var nodeCopy = document.getElementById(data).cloneNode(true);
+                
+                event.target.appendChild(nodeCopy);
+
+                alvo.className = 'ok';
+            }
+
+
+            // function marcar(posicao) 
+            // {
+            //     var posicaoLinha = posicao.substr(2,1);
+            //     var posicaoColuna = posicao.substr(4,1);
+
+            //     jogo[posicaoLinha][posicaoColuna] = 'OK';
+
+            //     var teste = '';
+
+            //     // PASSA POR CADA LINHA DAS COLUNAS DO OBJETO
+            //     for (var ncount_linha = 0; ncount_linha < Object.keys(jogo).length; ncount_linha ++) 
+            //     {
+            //         // PASSA POR CADA COLUNA DA LINHA ATUAL DO OBJETO
+            //         Object.keys(jogo[ncount_linha]).forEach
+            //         (function(value) 
+            //         {
+            //             // linha 1/Coluna1 + linha 1/Coluna2 + linha 1/Coluna3
+            //             var valor_linha = jogo[ncount_linha][value];
+                        
+            //             teste = teste + valor_linha;
+            //         }   
+            //         );  
+            //         if (!teste == '')
+            //         {
+            //           //  alert('acabou');
+            //         }
+            //     }
+
+                // COMO SABER QUEM VENCEU = SE BASEAR NOS VALORES DAS LINHAS
+                // Linhas/COLUNAS/Diagonais preenchidas:
+
+                // linha 1/Coluna1 + linha 1/Coluna2 + linha 1/Coluna3
+                // linha 2/Coluna1 + linha 2/Coluna2 + linha 2/Coluna3
+                // linha 3/Coluna1 + linha 3/Coluna2 + linha 3/Coluna3
+
+                // linha1/Coluna1 + linha2/coluna1 + linha3/coluna1
+                // linha1/Coluna2 + linha2/coluna2 + linha3/coluna2
+                // linha1/Coluna3 + linha2/coluna3 + linha3/coluna3
+
+                // Diagonal 1 = linha1/Coluna1 + linha2/Coluna2 + linha3/Coluna3
+                // Diagonal 2 = linha3/Coluna1 + linha2/Coluna2 + linha1/Coluna3
+            // }
+
+          
+        </script>
+
+        <footer class='margemTop'>            
+            <small>Aplicações Ricas para internet</small>
+        </footer>
+    </body>
+</html>

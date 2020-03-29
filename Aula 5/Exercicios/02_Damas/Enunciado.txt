@@ -1,0 +1,7 @@
+Crie um tabuleiro para um jogo de damas:
+Utilize uma tabela para o tabuleiro
+Posicione as imagens das peças dentro dos espaços corretos
+Permite que o usuário mova livremente as peças
+Não precisa validar se o movimento é permitido ou não
+Crie uma área de descarte de peças, permitindo eliminá-las
+Não permitir duas imagens em uma mesma célula
