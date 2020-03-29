@@ -194,12 +194,26 @@
             function drop(event) 
             {
                 
+                // É utilizado quando o destino for uma imagem
                 var validar = event.target.id;
-                
                 if( validar.substr(0,4) == 'peca' )
                 {
                     return false;
-                }                
+                }    
+
+                // A FUNÇÃO DROP ESTÁ SENDO UTILIZADA EM 2 TAGS NESTE CASO (TD E IMG)
+                // O USUARIO PODE ARRASTAR UMA IMAGEM PARA OUTRA OU PARA DENTRO DO TD (TENDO IMG DENTRO DELE OU NÃO)
+                // POR ISSO É NECESSÁRIO FAZER UM TRATAMENTO PARA CADA CASO, COMO ESTÁ SENDO FEITO ABAIXO                
+
+                // É utilizado quando o destino for um td
+                var validartd = document.getElementById(event.target.id);
+                var validar_peca = validartd.childElementCount;             
+
+                // Se no td existir tag filho, significa que já tem imagem
+                if (validar_peca > 0)
+                {
+                    return false;
+                }                            
                 
                 
                 event.preventDefault();
