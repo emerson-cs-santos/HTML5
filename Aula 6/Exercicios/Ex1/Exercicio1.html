@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Exercicio 1 Aula 6</title>
+        <meta charset="utf-8">
+
+    <style>
+
+        .margemTop
+        {
+            margin-top: 30px;
+
+        }
+        
+    </style>
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Exercicio 1 Aula 6</h1>
+
+            <nav>
+                <ul>
+                    <li> <a href="Exercicio1.html"> Exercicio 1</a></li>
+                    <li> <a href="../Ex2/Exercicio2.html" > Exercicio 2</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <header> 
+                    <h2>Exercicio 1 Aula 6</h2> 
+                </header>
+
+                <span>Selecione um tipo de produto:</span>
+                <select id="produtos" onchange="carregar_produtos()">
+                    <option value="Fitness">Fitness</option>
+                    <option value="Natação">Natação</option>
+                    <option value="Ciclismo">Ciclismo</option>
+                </select>
+
+                <div id='div_lista'>
+                    <ul id='lista'>
+                        <li>Listagem</li>
+                    </ul>
+                </div>
+
+            </section>
+        </main>
+
+        <script>
+            function carregar_produtos() 
+            {
+                var opcao = document.getElementById('produtos').value;
+                var lista = document.getElementById('lista');
+                var div = document.getElementById('div_lista');
+
+                if ( div.childElementCount > 0)
+                {
+                    div.removeChild(lista);
+
+                    var lista = document.createElement('ul');
+                    lista.id = 'lista';
+                    div.appendChild(lista);
+                }
+
+ 
+                loadDoc(opcao);
+            }
+
+
+            function loadDoc(opcao)
+                {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() 
+                    {
+                        if (this.readyState == 4 && this.status == 200) 
+                        {
+                            var resposta = JSON.parse(this.responseText);  
+
+                            for (i = 0; i < resposta.length; i++) 
+                            {                                
+                                var new_li = document.createElement('li');
+                                new_li.innerHTML = resposta[i];
+
+                                lista.appendChild(new_li);
+                            }                              
+                        }
+                    };
+
+                    xhttp.open("GET", "retorno.php?Tipo=" + opcao, true);
+                    xhttp.send();
+                }            
+        </script>
+
+        <footer class='margemTop'>            
+            <small>Aplicações Ricas para internet</small>
+        </footer>
+    </body>
+</html>
