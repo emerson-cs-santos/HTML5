@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Aula 7</title>
+        <meta charset="utf-8">
+
+    <style>
+
+        .margemTop
+        {
+            margin-top: 30px;
+
+        }
+        
+    </style>
+
+    </head>
+
+    <body>
+        <header>
+            <h1 contenteditable="true">Aula 7</h1>
+
+            <nav>
+                <ul>
+                    <li> <a href="Pagina1.html"> Página 1</a></li>
+                    <li> <a href="Pagina2.html" > Página 2</a></li>
+                    <li> <a href="Pagina3.html" > Página 3</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+               
+                <header> 
+                    <h2>Aula 7</h2> 
+                </header>
+
+                <div>
+                    <input type="button" value="Testar" onclick="teste()">
+                </div>
+                
+
+                <input type="button" value="Deixar negrito texto selecionado" onclick="execCommand('bold',false,'');">
+                <input type="button" value="selecine o Titulo H1 e aperte esse botão" onclick="execCommand('formatblock', false, '<h1>');">
+
+                <input type="button" value="Copiar texto selecionado" onclick="execCommand('copy',false,'');">
+
+
+                <p contenteditable="true" id='p'>This is a paragraph. It is editable. Try to change this text.</p>
+
+                <!-- Todos os filhos também ficam editaveis -->
+                <div contenteditable="true">
+                    <h1>Título</h1>
+                    <p>Parágrafo 1</p>
+                    <p>Parágrafo 2</p>
+                </div>    
+                
+                <!-- Todos os filhos também ficam editaveis, mas podemos fazer que alguns não sejam -->
+                <div contenteditable="true">
+                    <h1>Teste 1</h1>
+                    <p contenteditable="false">teste 2</p>
+                    <p>teste 3</p>
+                </div>                    
+
+                <!-- Impede o Corretor Ortográfico do navegador -->
+                First name: <input type="text" name="fname" spellcheck="true">
+            </section>          
+          
+        </main>
+
+        <script>
+
+            // Para evitar cache do ajax e não trazer conteudo desatualizado
+            // Usar funções que forçem o ajax a atualizar o conteudo
+            // Utilizar nos parametros/campos que o ajax vai receber
+
+            function teste() {
+
+                alert(new Date().getTime());
+
+                // Para pegar um valor de uma tag liberada pra edição, sendo esse tipo de tag não é normalemnte liberado para edição
+                // Precisa usar o innerText.
+                alert(document.getElementById('p').innerText);
+            }
+        </script>
+
+        <footer class='margemTop'>
+            <small>Footer</small>
+        </footer>
+    </body>
+</html>
