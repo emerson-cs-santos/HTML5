@@ -1,0 +1,66 @@
+.teste
+{
+    color:blue;
+}
+
+article:first-of-type
+{
+    font-size: x-large;
+}
+
+article ~ article
+{
+    column-count: 2;
+}
+
+header + article::first-letter
+{
+    font-size: 250px;
+    color: blue;
+}
+
+h1 + p
+{
+    font-weight: bolder;
+}
+
+/* article:first-of-type:nth-child(1) */
+article:first-of-type > h1:first-of-type
+{
+    margin-bottom: 50px;
+}
+
+tr:nth-child(odd)
+{
+    background-color: blue;
+}
+
+tr:nth-child(even)
+{
+    background-color: red;
+}
+
+tr:nth-last-child(1)
+{
+    font-variant: small-caps;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+tr:nth-last-child(4)
+{
+    font-size: 50px;
+    color: white;
+}
+
+a[href="index.html"]
+{
+    font-size: 30px;
+    font-weight: bolder;
+}
+    
+
+/* article :nth-of-type(2)
+{
+    column-count: 2;
+    color: blue;
+} */

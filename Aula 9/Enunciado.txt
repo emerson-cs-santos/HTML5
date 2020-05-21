@@ -1,0 +1,19 @@
+Exercício
+
+•Utilize a página disponibilizada no BlackBoard:
+    •Estilize-a com CSS, utilizando os seletores vistos
+    
+    •Destaque o primeiro artigo, colocando a fonte maior, e fazendo-o ocupar uma área maior
+        •Os demais artigos podem ser apresentados em duas colunas, com fonte menor
+    
+    •Destaque a primeira letra do primeiro parágrafo do primeiro artigo, colocando-a em fonte maior
+    
+    •Destaque o primeiro parágrafo de todos os artigos, colocando-o em negrito
+    
+    •Dê um espaçamento maior abaixo do primeiro parágrafo após o <h1>do <header>, de modo que ele pareça um subtítulo
+    
+    •Estilize a tabela, alternando as cores das linhas
+        •Dê um destaque discreto para a última linha
+        •Dê um destaque maior para a linha referente ao Santander
+    
+    •Destaque todos os links para o “index.html”
